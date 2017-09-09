@@ -2,12 +2,15 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-/**
- * Created by adsweiger on 11/12/2016.
- */
 public class Navigation {
+
+    //TODO: Calculate the robot speed and turn speed by testing it
+
+    // This is the speed of the robot.
     private static final double SPEED = 1;
-    private static final double ROTATION_SPEED = 1;
+    // This is the speed that the robot turns
+    private static final double TURN_SPEED = 1;
+    // This is the power of the drive motors
     private static final double POWER = 100;
 
     private MotorController leftMotors;
@@ -15,9 +18,9 @@ public class Navigation {
 
     Navigation(HardwareMap hardWareMap) {
         leftMotors = new MotorController(hardWareMap);
-        rightMotors = new MotorController(hardWareMap);
         leftMotors.add(MotorNames.BACK_LEFT_DRIVE.get());
         leftMotors.add(MotorNames.FRONT_LEFT_DRIVE.get());
+        rightMotors = new MotorController(hardWareMap);
         rightMotors.add(MotorNames.BACK_RIGHT_DRIVE.get());
         rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE.get());
     }
@@ -36,13 +39,13 @@ public class Navigation {
 
     void turnRight(double angle) throws InterruptedException {
         turnOn(true, false);
-        Thread.sleep((long)(angle / ROTATION_SPEED));
+        Thread.sleep((long)(angle / TURN_SPEED));
         turnOff();
     }
 
     void turnLeft(double angle) throws InterruptedException {
         turnOn(false, true);
-        Thread.sleep((long)(angle / ROTATION_SPEED));
+        Thread.sleep((long)(angle / TURN_SPEED));
         turnOff();
     }
 

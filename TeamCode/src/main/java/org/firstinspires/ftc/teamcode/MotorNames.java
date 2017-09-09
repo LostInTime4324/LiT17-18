@@ -1,8 +1,9 @@
 package org.firstinspires.ftc.teamcode;
 
-/**
- * Created by LMRobotics on 9/5/2017.
- */
+/*
+    This is where all the names of the motors for to use fot the phones should be put.
+    Use this whenever you want to add a motor name or change a motor name
+*/
 
 enum MotorNames {
 

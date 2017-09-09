@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import java.util.ArrayList;
 
 public class MotorController {
+
     private ArrayList<DcMotor> motors = new ArrayList<>();
     private HardwareMap hardwareMap;
     private boolean motorState = true;
@@ -21,7 +22,7 @@ public class MotorController {
         motors.add(hardwareMap.dcMotor.get(motorName));
     }
 
-    // Sets power of the motors
+    // Sets power of all the motors
     void setPower(double power) {
         if (Math.abs(power) > 5) {
             this.power = power;
@@ -33,6 +34,7 @@ public class MotorController {
         }
     }
 
+    // Toggles the motor state
     public void toggle() {
         if (motorState)
             turnOff();
@@ -41,7 +43,9 @@ public class MotorController {
         motorState = !motorState;
     }
 
-    public void buttonToggle(boolean button) {
+
+    // Toggles the motors when the button is pressed down
+    public void toggleOnButtonStateChange(boolean button) {
         if (button && !buttonState)
             toggle();
         buttonState = button;

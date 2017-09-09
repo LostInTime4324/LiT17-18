@@ -8,6 +8,7 @@ public class TeleOp extends OpMode {
     private MotorController leftMotors;
     private MotorController rightMotors;
 
+    // Initialization code that happens TeleOp starts
     @Override
     public void init() {
         leftMotors = new MotorController(hardwareMap);
@@ -17,11 +18,10 @@ public class TeleOp extends OpMode {
         rightMotors.add(MotorNames.BACK_RIGHT_DRIVE.get());
         rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE.get());
     }
-
+    
     @Override
     public void loop() {
         leftMotors.setPower(gamepad1.left_stick_y);
         rightMotors.setPower(gamepad1.right_stick_y);
-
     }
 }

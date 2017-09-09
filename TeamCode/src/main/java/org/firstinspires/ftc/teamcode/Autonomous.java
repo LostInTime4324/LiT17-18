@@ -10,7 +10,9 @@ public class Autonomous extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         nav = new Navigation(hardwareMap);
+
         waitForStart();
+
 
     }
 }
