@@ -22,6 +22,5 @@ public class Test extends OpMode {
         if (gamepad1.x) {
             leftmotor.setPower(0);
         }
-
     }
 }
