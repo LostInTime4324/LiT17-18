@@ -128,7 +128,7 @@ public class FtcRobotControllerActivity extends Activity
   protected ProgrammingModeController programmingModeController;
 
   protected UpdateUI.Callback callback;
-  protected Context context;
+  public static Context context;
   protected Utility utility;
   protected StartResult deviceNameManagerStartResult = new StartResult();
   protected StartResult prefRemoterStartResult = new StartResult();

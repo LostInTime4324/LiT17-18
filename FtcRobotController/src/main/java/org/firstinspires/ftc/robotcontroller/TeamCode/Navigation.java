@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.robotcontroller.TeamCode;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -18,11 +18,11 @@ public class Navigation {
 
     Navigation(HardwareMap hardWareMap) {
         leftMotors = new MotorController(hardWareMap);
-        leftMotors.add(MotorNames.BACK_LEFT_DRIVE.get());
-        leftMotors.add(MotorNames.FRONT_LEFT_DRIVE.get());
+        leftMotors.add(MotorNames.BACK_LEFT_DRIVE);
+        leftMotors.add(MotorNames.FRONT_LEFT_DRIVE);
         rightMotors = new MotorController(hardWareMap);
-        rightMotors.add(MotorNames.BACK_RIGHT_DRIVE.get());
-        rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE.get());
+        rightMotors.add(MotorNames.BACK_RIGHT_DRIVE);
+        rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE);
     }
 
     void driveForward(double distance) throws InterruptedException {

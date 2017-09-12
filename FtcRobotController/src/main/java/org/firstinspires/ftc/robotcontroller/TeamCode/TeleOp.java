@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.robotcontroller.TeamCode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
@@ -12,11 +12,11 @@ public class TeleOp extends OpMode {
     @Override
     public void init() {
         leftMotors = new MotorController(hardwareMap);
-        leftMotors.add(MotorNames.BACK_LEFT_DRIVE.get());
-        leftMotors.add(MotorNames.FRONT_LEFT_DRIVE.get());
+        leftMotors.add(MotorNames.BACK_LEFT_DRIVE);
+        leftMotors.add(MotorNames.FRONT_LEFT_DRIVE);
         rightMotors = new MotorController(hardwareMap);
-        rightMotors.add(MotorNames.BACK_RIGHT_DRIVE.get());
-        rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE.get());
+        rightMotors.add(MotorNames.BACK_RIGHT_DRIVE);
+        rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE);
     }
     
     @Override
