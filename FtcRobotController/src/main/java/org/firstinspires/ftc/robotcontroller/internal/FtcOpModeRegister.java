@@ -34,6 +34,7 @@ package org.firstinspires.ftc.robotcontroller.internal;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
 
+import org.firstinspires.ftc.robotcontroller.TeamCode.Autonomous;
 import org.firstinspires.ftc.robotcontroller.TeamCode.Test;
 import org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Linear;
 import org.firstinspires.ftc.robotcontroller.external.samples.ConceptNullOp;
@@ -71,5 +72,8 @@ public class FtcOpModeRegister implements OpModeRegister {
          */
         manager.register("BasicOpMode_Linear", BasicOpMode_Linear.class);
         manager.register("Test", Test.class);
+        manager.register("Name", Autonomous.class);
+
+
     }
 }
