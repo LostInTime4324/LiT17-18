@@ -35,7 +35,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpModeManager;
 import com.qualcomm.robotcore.eventloop.opmode.OpModeRegister;
 
 import org.firstinspires.ftc.robotcontroller.TeamCode.Test;
-import org.firstinspires.ftc.robotcontroller.external.samples.BasicOpMode_Linear;
+import org.firstinspires.ftc.robotcontroller.TeamCode.Tutorial;
 import org.firstinspires.ftc.robotcontroller.external.samples.ConceptNullOp;
 
 
@@ -69,7 +69,8 @@ public class FtcOpModeRegister implements OpModeRegister {
         /**
          * Any manual OpMode class registrations should go here.
          */
-        manager.register("BasicOpMode_Linear", BasicOpMode_Linear.class);
+
         manager.register("Test", Test.class);
+        manager.register("Tutorial", Tutorial.class);
     }
 }

@@ -13,48 +13,48 @@ public class Navigation {
     // This is the power of the drive motors
     private static final double POWER = 100;
 
+    double xPos;
+    double yPos;
+    double orientationAngle;
     private MotorController leftMotors;
     private MotorController rightMotors;
 
-    Navigation(HardwareMap hardWareMap) {
+    Navigation(HardwareMap hardWareMap, double xPos, double yPos, double angle) {
         leftMotors = new MotorController(hardWareMap);
         leftMotors.add(MotorNames.BACK_LEFT_DRIVE);
         leftMotors.add(MotorNames.FRONT_LEFT_DRIVE);
         rightMotors = new MotorController(hardWareMap);
         rightMotors.add(MotorNames.BACK_RIGHT_DRIVE);
         rightMotors.add(MotorNames.FRONT_RIGHT_DRIVE);
+        this.xPos = xPos;
+        this.yPos = yPos;
+        orientationAngle = angle;
     }
 
-    void driveForward(double distance) throws InterruptedException {
-        turnOn(true, true);
+    void drive(double distance, boolean forward) throws InterruptedException {
+        if (forward)
+            turnOn(true, true);
+        else
+            turnOn(false, false);
         Thread.sleep((long) (distance / SPEED));
         turnOff();
     }
 
-    void driveBackwards(double distance) throws InterruptedException {
-        turnOn(false, false);
-        Thread.sleep((long) (distance / SPEED));
-        turnOff();
-    }
-
-    void turnRight(double angle) throws InterruptedException {
-        turnOn(true, false);
-        Thread.sleep((long)(angle / TURN_SPEED));
-        turnOff();
-    }
-
-    void turnLeft(double angle) throws InterruptedException {
-        turnOn(false, true);
-        Thread.sleep((long)(angle / TURN_SPEED));
+    void turnClockwise(double angle) throws InterruptedException {
+        if (angle > 0)
+            turnOn(true, false);
+        else
+            turnOn(false, true);
+        Thread.sleep((long) (angle / TURN_SPEED));
         turnOff();
     }
 
     void turnOn(boolean leftForward, boolean rightForward) {
-        if(leftForward)
+        if (leftForward)
             leftMotors.setPower(POWER);
         else
             leftMotors.setPower(-POWER);
-        if(rightForward)
+        if (rightForward)
             rightMotors.setPower(POWER);
         else
             rightMotors.setPower(-POWER);
@@ -65,4 +65,10 @@ public class Navigation {
         rightMotors.setPower(0);
     }
 
+    void moveToPoint(double x, double y) throws InterruptedException {
+        double distance = Math.sqrt(Math.pow(xPos - x, 2) + Math.pow(yPos - y, 2));
+        double angle = Math.tan((xPos - x) / (yPos - y));
+        turnClockwise(angle);
+        drive(distance, true);
+    }
 }
